@@ -11,6 +11,7 @@ public class Uebung3Main {
 		table = mainCitylist.distanceTable;
 		int distance=getDistance (table);
 		System.out.println("\n");
+		
 		for(int i = 0; i<10;i++){
 		System.out.print(table[0][i] + " ");
 		System.out.print("reiselänge"+distance);
@@ -18,12 +19,19 @@ public class Uebung3Main {
 		
 		
 	}
-public static  int  getDistance (int[] location ){
-	int city,distance=0;
-	for (city=0; city<10;city++){
-		distance=distance+location[city];
+public static  int  getDistance(int[][] location, int[]cities){
+	
+	int table[] = cities;
+	int distance=0;
+	
+	for (i=0; i<table.length-1;i++){
+		getDistance += location[table[i]][table[i+1]];
 	}
-	return (distance);
+	getDistance +=location[table[table.length-1]][table[0]];
+	return getDistance;
+	}
+
+	
 	
 	
 	/*int city= table[0][0];
@@ -33,7 +41,7 @@ public static  int  getDistance (int[] location ){
 			distance +=distance[city];
 		
 		}			city++; why will this not work?*/
-		}
+		
 		//sum distances in "table". how?
 		/*int city=0;
 		while (city<10){
